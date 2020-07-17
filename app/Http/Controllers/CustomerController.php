@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\Exports\CustomersExportSheets;
 use App\Exports\CustomersExportView;
 use Illuminate\Http\Request;
 use App\Exports\CustomersExport;
@@ -40,5 +41,10 @@ class CustomerController extends Controller
        if (in_array($format, ['Mpdf', 'Dompdf', 'Tcpdf'])) $extension = 'pdf';
 
        return Excel::download(new CustomersExport(), 'customers. ' . $extension, $format);
+    }
+
+    public function export_sheets()
+    {
+        return Excel::download(new CustomersExportSheets(), 'customer.xlsx');
     }
 }
