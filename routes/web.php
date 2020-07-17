@@ -25,3 +25,5 @@ Route::get('customers', 'CustomerController@index');
 Route::get('customers/export', 'CustomerController@export')->name('customers.export');
 Route::get('customers/export_view', 'CustomerController@export_view')->name('customers.export_view');
 Route::get('customers/export_store', 'CustomerController@export_store')->name('customers.export_store');
+
+Route::get('customers/export_format/{format}', 'CustomerController@export_format')->name('customers.export_format');

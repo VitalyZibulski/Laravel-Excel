@@ -32,4 +32,13 @@ class CustomerController extends Controller
         Excel::store(new CustomersExport(), 'customers-' . now()->toDateString().'.xlsx');
         return 'OK';
     }
+
+    public function export_format($format)
+    {
+       $extension = strtolower($format);
+
+       if (in_array($format, ['Mpdf', 'Dompdf', 'Tcpdf'])) $extension = 'pdf';
+
+       return Excel::download(new CustomersExport(), 'customers. ' . $extension, $format);
+    }
 }
