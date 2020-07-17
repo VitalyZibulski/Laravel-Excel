@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\Exports\CustomersExportHeading;
 use App\Exports\CustomersExportSheets;
 use App\Exports\CustomersExportView;
 use Illuminate\Http\Request;
@@ -46,5 +47,10 @@ class CustomerController extends Controller
     public function export_sheets()
     {
         return Excel::download(new CustomersExportSheets(), 'customer.xlsx');
+    }
+
+    public function export_heading()
+    {
+        return Excel::download(new CustomersExportHeading(), 'customers.xlsx');
     }
 }
