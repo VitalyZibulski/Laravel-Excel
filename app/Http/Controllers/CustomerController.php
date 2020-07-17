@@ -26,4 +26,10 @@ class CustomerController extends Controller
     {
         return Excel::download(new CustomersExportView(), 'customers.xlsx');
     }
+
+    public function export_store()
+    {
+        Excel::store(new CustomersExport(), 'customers-' . now()->toDateString().'.xlsx');
+        return 'OK';
+    }
 }
