@@ -13,19 +13,13 @@ class CustomersExportHeading implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        $customers = Customer::all();
-
-        $final_collection = [];
-        foreach ($customers->chunk(3) as $chunk) {
-            $final_collection = array_merge($final_collection, $chunk->toArray(), [[]]);
-        }
-
-        return collect($final_collection);
+        return Customer::select(\DB::raw("'', id, first_name, last_name, email, created_at, updated_at"))->get();
     }
 
     public function headings(): array
     {
         return [
+          ' ',
           '#',
           'First Name',
           'Last Name',
