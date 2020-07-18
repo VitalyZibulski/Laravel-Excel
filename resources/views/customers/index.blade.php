@@ -16,6 +16,7 @@
         <a href="{{ route('customers.export_mapping') }}" class="btn btn-info">Export Purchases</a>
 
         <a href="{{ route('customers.export_styling') }}" class="btn btn-info">Export with Styling</a>
+        <a href="{{ route('customers.export_autosize') }}" class="btn btn-info">Export with Autosize</a>
         <br /><br />
 
         @include('customers.table', $customers)
