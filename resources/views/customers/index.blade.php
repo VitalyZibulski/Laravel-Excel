@@ -14,6 +14,8 @@
         <a href="{{ route('customers.export_heading') }}" class="btn btn-info">Export with Heading Row</a>
 
         <a href="{{ route('customers.export_mapping') }}" class="btn btn-info">Export Purchases</a>
+
+        <a href="{{ route('customers.export_styling') }}" class="btn btn-info">Export with Styling</a>
         <br /><br />
 
         @include('customers.table', $customers)

@@ -6,6 +6,7 @@ use App\Customer;
 use App\Exports\CustomersExportHeading;
 use App\Exports\CustomersExportMapping;
 use App\Exports\CustomersExportSheets;
+use App\Exports\CustomersExportStyling;
 use App\Exports\CustomersExportView;
 use Illuminate\Http\Request;
 use App\Exports\CustomersExport;
@@ -55,8 +56,8 @@ class CustomerController extends Controller
         return Excel::download(new CustomersExportHeading(), 'customers.xlsx');
     }
 
-    public function export_mapping()
+    public function export_styling()
     {
-        return Excel::download(new CustomersExportMapping(), 'customers.xlsx');
+        return Excel::download(new CustomersExportStyling(), 'customers.xlsx');
     }
 }

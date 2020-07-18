@@ -30,3 +30,4 @@ Route::get('customers/export_format/{format}', 'CustomerController@export_format
 Route::get('customers/export_sheets', 'CustomerController@export_sheets')->name('customers.export_sheets');
 Route::get('customers/export_heading', 'CustomerController@export_heading')->name('customers.export_heading');
 Route::get('customers/export_mapping', 'CustomerController@export_mapping')->name('customers.export_mapping');
+Route::get('customers/export_styling', 'CustomerController@export_styling')->name('customers.export_styling');
