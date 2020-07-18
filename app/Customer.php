@@ -10,6 +10,6 @@ class Customer extends Model
 
     public function purchases()
     {
-        return $this->hasMany('App\Purchase', 'customer_id', 'id');
+        return $this->hasMany('App\Purchase');
     }
 }

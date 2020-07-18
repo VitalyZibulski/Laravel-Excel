@@ -12,6 +12,8 @@
         <a href="{{ route('customers.export_sheets') }}" class="btn btn-info">Export info Multiple Sheets</a>
 
         <a href="{{ route('customers.export_heading') }}" class="btn btn-info">Export with Heading Row</a>
+
+        <a href="{{ route('customers.export_mapping') }}" class="btn btn-info">Export Purchases</a>
         <br /><br />
 
         @include('customers.table', $customers)
