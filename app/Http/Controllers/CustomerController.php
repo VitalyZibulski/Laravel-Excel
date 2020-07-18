@@ -9,6 +9,7 @@ use App\Exports\CustomersExportSheets;
 use App\Exports\CustomersExportSize;
 use App\Exports\CustomersExportStyling;
 use App\Exports\CustomersExportView;
+use App\Imports\CustomersImport;
 use Illuminate\Http\Request;
 use App\Exports\CustomersExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -65,5 +66,12 @@ class CustomerController extends Controller
     public function export_autosize()
     {
         return Excel::download(new CustomersExportSize(), 'customers.xlsx');
+    }
+
+    public function import()
+    {
+        Excel::import(new CustomersImport(), request()->file('import'));
+
+        return redirect()->route('customers.index')->withMessage('Imported');
     }
 }

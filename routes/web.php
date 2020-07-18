@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('customers', 'CustomerController@index');
+Route::get('customers', 'CustomerController@index')->name('customers.index');
 Route::get('customers/export', 'CustomerController@export')->name('customers.export');
 Route::get('customers/export_view', 'CustomerController@export_view')->name('customers.export_view');
 Route::get('customers/export_store', 'CustomerController@export_store')->name('customers.export_store');
@@ -32,3 +32,5 @@ Route::get('customers/export_heading', 'CustomerController@export_heading')->nam
 Route::get('customers/export_mapping', 'CustomerController@export_mapping')->name('customers.export_mapping');
 Route::get('customers/export_styling', 'CustomerController@export_styling')->name('customers.export_styling');
 Route::get('customers/export_autosize', 'CustomerController@export_autosize')->name('customers.export_autosize');
+
+Route::post('customers/import', 'CustomerController@import')->name('customers.import');

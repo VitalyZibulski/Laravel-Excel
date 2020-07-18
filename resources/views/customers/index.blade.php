@@ -19,6 +19,16 @@
         <a href="{{ route('customers.export_autosize') }}" class="btn btn-info">Export with Autosize</a>
         <br /><br />
 
+        @if (session('message'))
+            <div class="alert alert-info">{{ session('message') }}</div>
+        @endif
+
+        <form action="{{ route('customers.import') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="import" />
+            <input type="submit" class="btn btn-sm btn-primary" value="Import File" />
+        </form>
+
         @include('customers.table', $customers)
     </div>
 @endsection
