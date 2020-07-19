@@ -70,7 +70,7 @@ class CustomerController extends Controller
 
     public function import()
     {
-        Excel::import(new CustomersImport(), request()->file('import'));
+        Excel::import(new CustomersImport(), request()->file('import'), null, 'Xls'); // Csv
 
         return redirect()->route('customers.index')->withMessage('Imported');
     }
