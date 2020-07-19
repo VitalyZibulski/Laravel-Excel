@@ -10,6 +10,7 @@ use App\Exports\CustomersExportSize;
 use App\Exports\CustomersExportStyling;
 use App\Exports\CustomersExportView;
 use App\Imports\CustomersImport;
+use App\Imports\CustomersImportLarge;
 use Illuminate\Http\Request;
 use App\Exports\CustomersExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -73,5 +74,17 @@ class CustomerController extends Controller
         Excel::import(new CustomersImport($request->delimiter), request()->file('import'), null, 'Xls'); // Csv
 
         return redirect()->route('customers.index')->withMessage('Imported');
+    }
+
+    public function import_large()
+    {
+     $time_start = $this->microtime_float();
+
+     Excel::import(new CustomersImportLarge(), request()->file('import'));
+
+     $time_end = $this->microtime_float();
+     $time = $time_end - $time_start;
+
+     return "Time: $time seconds";
     }
 }

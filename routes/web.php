@@ -34,3 +34,4 @@ Route::get('customers/export_styling', 'CustomerController@export_styling')->nam
 Route::get('customers/export_autosize', 'CustomerController@export_autosize')->name('customers.export_autosize');
 
 Route::post('customers/import', 'CustomerController@import')->name('customers.import');
+Route::post('customers/import_large', 'CustomerController@import_large')->name('customers.import_large');
