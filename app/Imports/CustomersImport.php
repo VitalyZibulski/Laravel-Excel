@@ -4,8 +4,9 @@ namespace App\Imports;
 
 use App\Customer;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithCustomCsvSettings;
 
-class CustomersImport implements ToModel
+class CustomersImport implements ToModel, WithCustomCsvSettings
 {
     /**
     * @param array $row
@@ -19,5 +20,15 @@ class CustomersImport implements ToModel
             'last_name' => $row[2],
             'email' => $row[3]
         ]);
+    }
+
+    /**
+     * @return array
+     */
+    public function getCsvSettings(): array
+    {
+        return [
+          'delimiter' => ',' // ;
+        ];
     }
 }
