@@ -8,6 +8,12 @@ use Maatwebsite\Excel\Concerns\WithCustomCsvSettings;
 
 class CustomersImport implements ToModel, WithCustomCsvSettings
 {
+    private $delimeter;
+
+    public function __construct($delimeter)
+    {
+        $this->delimeter = $delimeter;
+    }
     /**
     * @param array $row
     *
@@ -28,7 +34,7 @@ class CustomersImport implements ToModel, WithCustomCsvSettings
     public function getCsvSettings(): array
     {
         return [
-          'delimiter' => ',' // ;
+          'delimiter' => $this->delimeter
         ];
     }
 }

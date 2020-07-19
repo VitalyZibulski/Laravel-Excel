@@ -68,9 +68,9 @@ class CustomerController extends Controller
         return Excel::download(new CustomersExportSize(), 'customers.xlsx');
     }
 
-    public function import()
+    public function import(Request $request)
     {
-        Excel::import(new CustomersImport(), request()->file('import'), null, 'Xls'); // Csv
+        Excel::import(new CustomersImport($request->delimiter), request()->file('import'), null, 'Xls'); // Csv
 
         return redirect()->route('customers.index')->withMessage('Imported');
     }

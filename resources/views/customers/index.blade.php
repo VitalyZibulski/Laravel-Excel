@@ -26,6 +26,11 @@
         <form action="{{ route('customers.import') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="file" name="import" />
+            <select name="delimeter">
+                <option value=",">Delimiter , (comma)</option>
+                <option value=";">Delimiter ; (semicolon)</option>
+            </select>
+            <br />
             <input type="submit" class="btn btn-sm btn-primary" value="Import File" />
         </form>
 
