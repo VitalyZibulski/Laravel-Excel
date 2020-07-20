@@ -87,4 +87,22 @@ class CustomerController extends Controller
 
      return "Time: $time seconds";
     }
+
+    public function import_relationships()
+    {
+        $time_start = $this->microtime_float();
+
+        Excel::import(new CustomersImportRelationShips(), request()->file('import'));
+
+        $time_end = $this->microtime_float();
+        $time = $time_end - $time_start;
+
+        return "Time: $time seconds";
+    }
+
+    private function microtime_float()
+    {
+        list($usec, $sec) = explode(" ", microtime());
+        return ((float)$usec + (float)$sec);
+    }
 }

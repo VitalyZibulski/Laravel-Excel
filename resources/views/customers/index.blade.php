@@ -29,6 +29,14 @@
             <input type="submit" class="btn btn-sm btn-primary" value="Import File" />
         </form>
 
+        <br />
+
+        <form action="{{ route('customers.import_relationships') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="import" />
+            <input type="submit" class="btn btn-sm btn-primary" value="Import File" />
+        </form>
+
         @include('customers.table', $customers)
     </div>
 @endsection
