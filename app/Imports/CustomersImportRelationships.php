@@ -8,8 +8,14 @@ use Maatwebsite\Excel\Concerns\ToModel;
 
 class CustomersImportRelationships implements ToModel
 {
+    private $customers;
+
     public function __construct()
     {
+        $this->customers = Customer::select('id', 'first_name', 'last_name')->get()
+            ->keyBy(function($item) {
+               return $item->first_name . ' ' . $item->last_name;
+            })->toArray();
     }
 
     /**
@@ -20,7 +26,7 @@ class CustomersImportRelationships implements ToModel
     public function model(array $row)
     {
         return new Purchase([
-            'customer_id' => $this->getCustomerIdDB($row[1], $row[2]),
+            'customer_id' => $this->getCustomerId($row[1], $row[2]),
             'account_number' => $row[3],
             'company' => $row[4]
         ]);
@@ -32,5 +38,13 @@ class CustomersImportRelationships implements ToModel
         if (!$customer) return null;
 
         return $customer->id;
+    }
+
+    private function getCustomerId($first_name, $last_name)
+    {
+        $customer = $this->customers[$first_name . ' ' . $last_name] ?? null;
+        if ($customer) return null;
+
+        return $customer['id'];
     }
 }
