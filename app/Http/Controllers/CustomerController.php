@@ -100,6 +100,13 @@ class CustomerController extends Controller
         return "Time: $time seconds";
     }
 
+    public function export_dateformat()
+    {
+        return Excel::download(new CustomersExportDateFormat(), 'customers.xlsx');
+    }
+
+
+
     private function microtime_float()
     {
         list($usec, $sec) = explode(" ", microtime());

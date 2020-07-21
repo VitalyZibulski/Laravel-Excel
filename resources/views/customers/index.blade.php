@@ -17,6 +17,8 @@
 
         <a href="{{ route('customers.export_styling') }}" class="btn btn-info">Export with Styling</a>
         <a href="{{ route('customers.export_autosize') }}" class="btn btn-info">Export with Autosize</a>
+        <a href="{{ route('customers.export_dateformat') }}" class="btn btn-info">Export with date formats</a>
+
         <br /><br />
 
         @if (session('message'))
@@ -32,6 +34,12 @@
         <br />
 
         <form action="{{ route('customers.import_relationships') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="import" />
+            <input type="submit" class="btn btn-sm btn-primary" value="Import File" />
+        </form>
+
+        <form action="{{ route('customers.import_dateformat') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="file" name="import" />
             <input type="submit" class="btn btn-sm btn-primary" value="Import File" />

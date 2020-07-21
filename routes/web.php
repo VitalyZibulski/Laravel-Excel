@@ -32,7 +32,9 @@ Route::get('customers/export_heading', 'CustomerController@export_heading')->nam
 Route::get('customers/export_mapping', 'CustomerController@export_mapping')->name('customers.export_mapping');
 Route::get('customers/export_styling', 'CustomerController@export_styling')->name('customers.export_styling');
 Route::get('customers/export_autosize', 'CustomerController@export_autosize')->name('customers.export_autosize');
+Route::get('customers/export_dateformat', 'CustomerController@export_dateformat')->name('customers.export_dateformat');
 
 Route::post('customers/import', 'CustomerController@import')->name('customers.import');
 Route::post('customers/import_large', 'CustomerController@import_large')->name('customers.import_large');
 Route::post('customers/import_relationships', 'CustomerController@import_relationships')->name('customers.import_relationships');
+Route::post('customers/import_dateformat', 'CustomerController@import_dateformat')->name('customers.import_dateformat');
