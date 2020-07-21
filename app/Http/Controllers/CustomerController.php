@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\Exports\CustomersExportDateFormat;
 use App\Exports\CustomersExportHeading;
 use App\Exports\CustomersExportMapping;
 use App\Exports\CustomersExportSheets;
@@ -10,7 +11,9 @@ use App\Exports\CustomersExportSize;
 use App\Exports\CustomersExportStyling;
 use App\Exports\CustomersExportView;
 use App\Imports\CustomersImport;
+use App\Imports\CustomersImportDateFormat;
 use App\Imports\CustomersImportLarge;
+use App\Imports\CustomersImportRelationships;
 use Illuminate\Http\Request;
 use App\Exports\CustomersExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -103,6 +106,13 @@ class CustomerController extends Controller
     public function export_dateformat()
     {
         return Excel::download(new CustomersExportDateFormat(), 'customers.xlsx');
+    }
+
+    public function import_dateformat()
+    {
+        Excel::import(new CustomersImportDateFormat(), request()->file('import'));
+
+        return redirect()->route('customers.index')->withMessage('Imported');
     }
 
 
