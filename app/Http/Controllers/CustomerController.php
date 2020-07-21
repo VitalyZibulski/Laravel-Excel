@@ -115,6 +115,18 @@ class CustomerController extends Controller
         return redirect()->route('customers.index')->withMessage('Imported');
     }
 
+    public function import_errors()
+    {
+        try {
+            Excel::import(new CustomersImportDateFormat(), request()->file('import'));
+        } catch (\Exception $ex) {
+            return back()->withError('Something wrong');
+        }
+
+
+        return redirect()->route('customers.index')->withMessage('Imported');
+    }
+
 
 
     private function microtime_float()

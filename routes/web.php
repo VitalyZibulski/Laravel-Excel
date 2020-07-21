@@ -38,3 +38,4 @@ Route::post('customers/import', 'CustomerController@import')->name('customers.im
 Route::post('customers/import_large', 'CustomerController@import_large')->name('customers.import_large');
 Route::post('customers/import_relationships', 'CustomerController@import_relationships')->name('customers.import_relationships');
 Route::post('customers/import_dateformat', 'CustomerController@import_dateformat')->name('customers.import_dateformat');
+Route::post('customers/import_errors', 'CustomerController@import_errors')->name('customers.import_errors');
