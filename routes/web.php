@@ -34,9 +34,12 @@ Route::get('customers/export_styling', 'CustomerController@export_styling')->nam
 Route::get('customers/export_autosize', 'CustomerController@export_autosize')->name('customers.export_autosize');
 Route::get('customers/export_dateformat', 'CustomerController@export_dateformat')->name('customers.export_dateformat');
 Route::get('customers/export_mergecells', 'CustomerController@export_mergecells')->name('customers.export_mergecells');
+Route::get('customers/export_formulas', 'CustomerController@export_mergecells')->name('customers.export_formulas');
 
 Route::post('customers/import', 'CustomerController@import')->name('customers.import');
 Route::post('customers/import_large', 'CustomerController@import_large')->name('customers.import_large');
 Route::post('customers/import_relationships', 'CustomerController@import_relationships')->name('customers.import_relationships');
 Route::post('customers/import_dateformat', 'CustomerController@import_dateformat')->name('customers.import_dateformat');
 Route::post('customers/import_errors', 'CustomerController@import_errors')->name('customers.import_errors');
+
+Route::get('export', 'ExportController@excel');
