@@ -33,6 +33,7 @@ Route::get('customers/export_mapping', 'CustomerController@export_mapping')->nam
 Route::get('customers/export_styling', 'CustomerController@export_styling')->name('customers.export_styling');
 Route::get('customers/export_autosize', 'CustomerController@export_autosize')->name('customers.export_autosize');
 Route::get('customers/export_dateformat', 'CustomerController@export_dateformat')->name('customers.export_dateformat');
+Route::get('customers/export_mergecells', 'CustomerController@export_mergecells')->name('customers.export_mergecells');
 
 Route::post('customers/import', 'CustomerController@import')->name('customers.import');
 Route::post('customers/import_large', 'CustomerController@import_large')->name('customers.import_large');

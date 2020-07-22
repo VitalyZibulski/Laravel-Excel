@@ -6,6 +6,7 @@ use App\Customer;
 use App\Exports\CustomersExportDateFormat;
 use App\Exports\CustomersExportHeading;
 use App\Exports\CustomersExportMapping;
+use App\Exports\CustomersExportMergeCells;
 use App\Exports\CustomersExportSheets;
 use App\Exports\CustomersExportSize;
 use App\Exports\CustomersExportStyling;
@@ -108,6 +109,11 @@ class CustomerController extends Controller
         return Excel::download(new CustomersExportDateFormat(), 'customers.xlsx');
     }
 
+    public function export_mergecells()
+    {
+        return Excel::download(new CustomersExportMergeCells(), 'customers.xlsx');
+    }
+
     public function import_dateformat()
     {
         Excel::import(new CustomersImportDateFormat(), request()->file('import'));
@@ -129,8 +135,6 @@ class CustomerController extends Controller
 
         return redirect()->route('customers.index')->withMessage('Imported');
     }
-
-
 
     private function microtime_float()
     {
