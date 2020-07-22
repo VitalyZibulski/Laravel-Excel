@@ -11,6 +11,7 @@ use App\Exports\CustomersExportSheets;
 use App\Exports\CustomersExportSize;
 use App\Exports\CustomersExportStyling;
 use App\Exports\CustomersExportView;
+use App\Exports\TransactionsExport;
 use App\Imports\CustomersImport;
 use App\Imports\CustomersImportDateFormat;
 use App\Imports\CustomersImportLarge;
@@ -112,6 +113,10 @@ class CustomerController extends Controller
     public function export_mergecells()
     {
         return Excel::download(new CustomersExportMergeCells(), 'customers.xlsx');
+    }
+    public function export_formulas()
+    {
+        return Excel::download(new TransactionsExport(), 'transactions.xlsx');
     }
 
     public function import_dateformat()

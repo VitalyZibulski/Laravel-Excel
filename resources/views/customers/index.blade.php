@@ -19,6 +19,7 @@
         <a href="{{ route('customers.export_autosize') }}" class="btn btn-info">Export with Autosize</a>
         <a href="{{ route('customers.export_dateformat') }}" class="btn btn-info">Export with date formats</a>
         <a href="{{ route('customers.export_mergecells') }}" class="btn btn-info">Export with Merge Cells</a>
+        <a href="{{ route('customers.export_formulas') }}" class="btn btn-info">Export Transactions</a>
 
         <br /><br />
 
