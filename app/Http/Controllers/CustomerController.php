@@ -119,10 +119,13 @@ class CustomerController extends Controller
     {
         try {
             Excel::import(new CustomersImportDateFormat(), request()->file('import'));
+        } catch (\InvalidArgumentException $ex) {
+            return back()->withError('Wrong date format in some column');
         } catch (\Exception $ex) {
-            return back()->withError('Something wrong');
+            return back()->withError('Something went wrong, check your file');
+        } catch (\Error $ex) {
+            return back()->withError($ex->getMessage());
         }
-
 
         return redirect()->route('customers.index')->withMessage('Imported');
     }
